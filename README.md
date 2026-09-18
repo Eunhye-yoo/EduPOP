@@ -16,6 +16,12 @@
   <img src="https://img.shields.io/badge/Thymeleaf-3.x-005F0F?style=flat-square&logo=thymeleaf&logoColor=white" alt="Thymeleaf">
   <img src="https://img.shields.io/badge/OpenAI_API-412991?style=flat-square&logo=openai&logoColor=white" alt="OpenAI API">
 </p>
+---
+
+## 📎 EduPOP Portfolio & Demo
+
+- 📄 서비스 기획 포트폴리오: `Eunhye-yoo/EduPOP/docs/`에 업로드 예정
+- 🎥 [EduPOP 시연 영상](https://youtu.be/mkAcPCD7VOY)
 
 ---
 
