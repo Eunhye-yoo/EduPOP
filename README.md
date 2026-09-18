@@ -18,13 +18,6 @@
 </p>
 ---
 
-## 📎 EduPOP Portfolio & Demo
-
-- 📄 서비스 기획 포트폴리오: `Eunhye-yoo/EduPOP/docs/`에 업로드 예정
-- 🎥 [EduPOP 시연 영상](https://youtu.be/mkAcPCD7VOY)
-
----
-
 ## 👤 My Contribution
 
 > **아이디어 제안부터 기능 기획, 데이터 흐름 설계, 구현 및 기능 간 재사용 구조까지 참여했습니다.**
@@ -248,12 +241,10 @@ Academy
 
 ## 🎬 Portfolio & Demo
 
-기획자 관점에서 정리한 상세 포트폴리오 PDF와 실제 서비스 시연 영상은 파일 업로드 후 연결할 예정입니다.
+- 🎥 **[EduPOP 서비스 시연 영상](https://youtu.be/mkAcPCD7VOY)** — 실제 구현된 주요 사용자 흐름과 핵심 기능
+- 📄 **서비스 기획 포트폴리오** — 문제 정의, 사용자 흐름, 기능 기획, 시장·경쟁 관점, 핵심 기능 및 구현 연결
 
-- 📄 **기획자 관점 포트폴리오** — 문제 정의, 사용자 흐름, 기능 기획, 시장·경쟁 관점, 핵심 기능 및 구현 연결
-- 🎥 **서비스 시연 영상** — 실제 구현된 주요 사용자 흐름과 핵심 기능
-
-> 업로드 예정 경로: docs/EduPOP_Planning_Portfolio.pdf / docs/EduPOP_Demo.mp4
+> 포트폴리오 PDF는 현재 별도 파일로 정리 중이며, GitHub 저장소에 업로드한 뒤 링크를 추가할 예정입니다.
 
 ---
 
@@ -267,7 +258,7 @@ Academy
 
 ### 저장소 복제
 ~~~bash
-git clone https://github.com/Seo-Yeon-Choi/EduPOP.git
+git clone https://github.com/Eunhye-yoo/EduPOP.git
 cd EduPOP/EduPOP
 ~~~
 
