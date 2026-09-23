@@ -61,11 +61,11 @@ flowchart LR
 - 학생별 성적 추이와 강점·취약 영역을 제공합니다.
 - 월간 학습 리포트를 통해 시험, 복습, 독서 활동을 종합합니다.
 
-### 인증과 보안
-- 일반 로그인 및 Kakao·Naver·Google 소셜 로그인을 지원합니다.
-- Spring Security를 이용해 관리자·교사·학생의 접근 권한을 분리합니다.
-- 비밀번호는 BCrypt로 암호화합니다.
-- 세션 및 CSRF 보호를 적용합니다.
+### 인증과 접근 제어
+- 일반 로그인과 Kakao·Naver·Google 소셜 로그인 연동 코드를 포함합니다.
+- Spring Security 설정에서 관리자·교사·학생별 URL 접근 권한을 구분합니다.
+- 비밀번호 저장에 BCrypt를 사용하고 세션 기반 로그인 설정을 둡니다.
+- 외부 OAuth 기능은 각 서비스의 발급 정보와 콜백 설정이 필요합니다.
 
 ### 학원 등록 검증
 - 국세청 사업자등록정보 진위확인 API를 이용해 학원 등록 정보를 검증합니다.
@@ -102,7 +102,7 @@ flowchart LR
 
 - 시험 회차별 성적 추이와 영역·소분류별 성취도 시각화
 - 강점 Top 3와 취약 유형 Worst 3 제공
-- 데이터가 없는 상황을 고려한 Null-Safe 처리
+- 조회 결과가 없을 때 빈 목록 또는 기본 표시 데이터를 반환하도록 처리
 - 분석 메서드를 분리해 다른 팀원의 월간 학생 리포트에서도 재사용 가능하도록 구성
 
 ---
@@ -132,7 +132,8 @@ flowchart TB
     S --> B["Controller · Service"]
     B --> D["MyBatis · MySQL"]
     B --> X["OAuth · OpenAI · 국세청 API"]
-    B --> P["PDFBox · Chart.js"]
+    B --> P["PDFBox"]
+    V --> C["Chart.js"]
 ~~~
 
 ### 분석 기능 데이터 흐름
@@ -190,9 +191,7 @@ Academy
 ## 🎬 Portfolio & Demo
 
 - 🎥 **[EduPOP 서비스 시연 영상](https://youtu.be/mkAcPCD7VOY)** — 실제 구현된 주요 사용자 흐름과 핵심 기능
-- 📄 **서비스 기획 포트폴리오** — 문제 정의, 사용자 흐름, 기능 기획, 시장·경쟁 관점, 핵심 기능 및 구현 연결
-
-> 포트폴리오 PDF는 현재 별도 파일로 정리 중이며, GitHub 저장소에 업로드한 뒤 링크를 추가할 예정입니다.
+포트폴리오 PDF는 저장소에 아직 포함되어 있지 않습니다. 링크를 추가할 때는 실제 업로드된 파일을 연결합니다.
 
 ---
 
@@ -210,38 +209,35 @@ git clone https://github.com/Eunhye-yoo/EduPOP.git
 cd EduPOP/EduPOP
 ~~~
 
-### 데이터베이스 준비
-MySQL에서 edupop 데이터베이스를 만든 뒤 DB/schema.sql을 적용합니다.
+### 데이터베이스와 설정
 
-~~~sql
-CREATE DATABASE edupop
-  CHARACTER SET utf8mb4
-  COLLATE utf8mb4_unicode_ci;
-~~~
+`EduPOP/DB/schema.sql`은 테이블 정의와 후속 ALTER 문이 섞여 있습니다. 이미 선언된 열을 다시 추가하는 구문도 있어 **빈 DB에 그대로 실행하는 초기화 스크립트로 검증되지 않았습니다.** 실제 실행에는 이 코드와 맞는 MySQL 스키마를 별도로 정리하고 적용해야 합니다.
 
-### 환경 변수
+`EduPOP/src/main/resources/application.properties`에서 `edupop` DB의 접속 정보와 다음 연동 값을 확인합니다. 소셜 로그인 설정 중 Google Client ID·Secret은 값이 없으면 설정 단계에서 문제가 생길 수 있으므로 로컬 실행 전 주입해야 합니다.
 
 | 환경 변수 | 용도 |
 | --- | --- |
 | OPENAI_API_KEY | AI 유사 문제 생성 |
-| KAKAO_CLIENT_ID | Kakao 로그인 |
-| KAKAO_REDIRECT_URI | Kakao 콜백 주소 |
-| NAVER_CLIENT_ID | Naver 로그인 |
-| NAVER_CLIENT_SECRET | Naver 로그인 |
-| NAVER_REDIRECT_URI | Naver 콜백 주소 |
-| GOOGLE_CLIENT_ID | Google 로그인 |
-| GOOGLE_CLIENT_SECRET | Google 로그인 |
-| GOOGLE_REDIRECT_URI | Google 콜백 주소 |
+| KAKAO_CLIENT_ID, KAKAO_REDIRECT_URI | Kakao 로그인 |
+| NAVER_CLIENT_ID, NAVER_CLIENT_SECRET, NAVER_REDIRECT_URI | Naver 로그인 |
+| GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_REDIRECT_URI | Google 로그인 |
 | NTS_BUSINESS_API_KEY | 국세청 사업자등록정보 검증 |
 
-API 키와 Client Secret은 저장소에 커밋하지 말고 환경 변수 또는 IntelliJ 실행 구성으로 주입합니다.
+API 키와 Client Secret은 저장소에 새로 커밋하지 말고 실행 환경에서 주입합니다.
 
 ### 실행
-~~~powershell
-.\mvnw.cmd spring-boot:run
+
+스키마와 연동 설정을 준비한 뒤 `EduPOP` 프로젝트 폴더에서 실행합니다.
+
+~~~bash
+./mvnw spring-boot:run
 ~~~
 
-실행 후 http://localhost:8080으로 접속합니다.
+Windows에서는 `mvnw.cmd spring-boot:run`을 사용합니다. 기본 포트 설정이라면 `http://localhost:8080`에서 확인할 수 있습니다. 현재 저장소만으로 깨끗한 DB에서 재현 가능한 실행 절차는 아직 확인되지 않았습니다.
+
+### 구현 범위 확인
+
+성적 분석, 반 관리, 월간 리포트의 서비스·화면/API 코드를 확인했습니다. 데이터가 없는 반의 위험 신호, 배정 경로별 검증, 리포트 발행부터 공유 열람까지의 연결은 통합 검증이 필요한 부분으로 남아 있습니다.
 
 ---
 
