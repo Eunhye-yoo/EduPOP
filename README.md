@@ -15,12 +15,12 @@ EduPOP connects test creation, grading, analysis, review, and growth reporting i
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Java-17-6E4D57?style=flat-square&logo=openjdk&logoColor=white" alt="Java 17">
-  <img src="https://img.shields.io/badge/Spring_Boot-4.1.0-A86655?style=flat-square&logo=springboot&logoColor=white" alt="Spring Boot 4.1.0">
-  <img src="https://img.shields.io/badge/MyBatis-4.0.1-2F2529?style=flat-square" alt="MyBatis 4.0.1">
-  <img src="https://img.shields.io/badge/MySQL-8.x-8A6A8F?style=flat-square&logo=mysql&logoColor=white" alt="MySQL">
-  <img src="https://img.shields.io/badge/Thymeleaf-3.x-C08B73?style=flat-square&logo=thymeleaf&logoColor=white" alt="Thymeleaf">
-  <img src="https://img.shields.io/badge/OpenAI_API-6E4D57?style=flat-square&logo=openai&logoColor=white" alt="OpenAI API">
+  <img src="https://img.shields.io/badge/Java-17-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java 17">
+  <img src="https://img.shields.io/badge/Spring_Boot-4.1.0-6DB33F?style=flat-square&logo=springboot&logoColor=white" alt="Spring Boot 4.1.0">
+  <img src="https://img.shields.io/badge/MyBatis-4.0.1-000000?style=flat-square" alt="MyBatis 4.0.1">
+  <img src="https://img.shields.io/badge/MySQL-8.x-4479A1?style=flat-square&logo=mysql&logoColor=white" alt="MySQL">
+  <img src="https://img.shields.io/badge/Thymeleaf-3.x-005F0F?style=flat-square&logo=thymeleaf&logoColor=white" alt="Thymeleaf">
+  <img src="https://img.shields.io/badge/OpenAI_API-412991?style=flat-square&logo=openai&logoColor=white" alt="OpenAI API">
 </p>
 
 ## 📌 Project Overview
