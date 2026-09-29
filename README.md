@@ -15,17 +15,19 @@ EduPOP connects test creation, grading, analysis, review, and growth reporting i
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Java-17-007396?style=flat-square&logo=openjdk&logoColor=white" alt="Java 17">
-  <img src="https://img.shields.io/badge/Spring_Boot-4.1.0-6DB33F?style=flat-square&logo=springboot&logoColor=white" alt="Spring Boot 4.1.0">
-  <img src="https://img.shields.io/badge/MyBatis-4.0.1-000000?style=flat-square" alt="MyBatis 4.0.1">
-  <img src="https://img.shields.io/badge/MySQL-8.x-4479A1?style=flat-square&logo=mysql&logoColor=white" alt="MySQL">
-  <img src="https://img.shields.io/badge/Thymeleaf-3.x-005F0F?style=flat-square&logo=thymeleaf&logoColor=white" alt="Thymeleaf">
-  <img src="https://img.shields.io/badge/OpenAI_API-412991?style=flat-square&logo=openai&logoColor=white" alt="OpenAI API">
+  <img src="https://img.shields.io/badge/Java-17-6E4D57?style=flat-square&logo=openjdk&logoColor=white" alt="Java 17">
+  <img src="https://img.shields.io/badge/Spring_Boot-4.1.0-A86655?style=flat-square&logo=springboot&logoColor=white" alt="Spring Boot 4.1.0">
+  <img src="https://img.shields.io/badge/MyBatis-4.0.1-2F2529?style=flat-square" alt="MyBatis 4.0.1">
+  <img src="https://img.shields.io/badge/MySQL-8.x-8A6A8F?style=flat-square&logo=mysql&logoColor=white" alt="MySQL">
+  <img src="https://img.shields.io/badge/Thymeleaf-3.x-C08B73?style=flat-square&logo=thymeleaf&logoColor=white" alt="Thymeleaf">
+  <img src="https://img.shields.io/badge/OpenAI_API-6E4D57?style=flat-square&logo=openai&logoColor=white" alt="OpenAI API">
 </p>
 
 ## 📌 Project Overview
 
 EduPOP is a team project for private academies serving elementary and middle school students. It connects academy operations and learning activities in a single web service.
+
+> **Team Project** — The features below describe the overall service. My individual implementation scope is separated under **My Contribution**.
 
 ### Core Learning Cycle
 
@@ -78,13 +80,13 @@ flowchart LR
 
 ## 👤 My Contribution
 
-> **I proposed the initial product concept, led key parts of service planning, and implemented features that help teachers turn test results into actionable input for the next class.**
+> **I structured academy-operation problems into requirements and data flows, and directly implemented class-management, analytics, and dashboard features that help teachers act on test results.**
 
-### 1. Product Planning and Data Flow Design
-- Proposed the EduPOP concept and helped define the overall service direction
-- Designed the user flow connecting test results, analysis, review, and growth reporting
-- Designed the information structure from class-level analysis to student-level reports
-- Structured analytics logic so it could also be reused in monthly student reports
+### 1. Problem Definition, Requirement Structuring, and Data-Flow Design
+- Proposed the EduPOP concept and translated academy-operation and learning needs into product requirements
+- Defined the user flow connecting test results, analysis, review, and growth reporting
+- Designed the information flow from class-level analysis to student-level reports
+- Structured analytics logic so it could also be reused in monthly student-report features
 
 ### 2. Class Management and Student / Multi-Instructor Mapping
 - Implemented class creation, update, status management, and teacher/student assignment
