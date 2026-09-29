@@ -9,18 +9,20 @@
 <p align="center">시험 → 분석 → 복습 → 성장 리포트의 흐름을 하나의 서비스로 연결해, 교사는 다음 수업을 준비하고 학생은 자신의 취약점을 확인할 수 있도록 설계했습니다.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Java-17-007396?style=flat-square&logo=openjdk&logoColor=white" alt="Java 17">
-  <img src="https://img.shields.io/badge/Spring_Boot-4.1.0-6DB33F?style=flat-square&logo=springboot&logoColor=white" alt="Spring Boot 4.1.0">
-  <img src="https://img.shields.io/badge/MyBatis-4.0.1-000000?style=flat-square" alt="MyBatis 4.0.1">
-  <img src="https://img.shields.io/badge/MySQL-8.x-4479A1?style=flat-square&logo=mysql&logoColor=white" alt="MySQL">
-  <img src="https://img.shields.io/badge/Thymeleaf-3.x-005F0F?style=flat-square&logo=thymeleaf&logoColor=white" alt="Thymeleaf">
-  <img src="https://img.shields.io/badge/OpenAI_API-412991?style=flat-square&logo=openai&logoColor=white" alt="OpenAI API">
+  <img src="https://img.shields.io/badge/Java-17-6E4D57?style=flat-square&logo=openjdk&logoColor=white" alt="Java 17">
+  <img src="https://img.shields.io/badge/Spring_Boot-4.1.0-A86655?style=flat-square&logo=springboot&logoColor=white" alt="Spring Boot 4.1.0">
+  <img src="https://img.shields.io/badge/MyBatis-4.0.1-2F2529?style=flat-square" alt="MyBatis 4.0.1">
+  <img src="https://img.shields.io/badge/MySQL-8.x-8A6A8F?style=flat-square&logo=mysql&logoColor=white" alt="MySQL">
+  <img src="https://img.shields.io/badge/Thymeleaf-3.x-C08B73?style=flat-square&logo=thymeleaf&logoColor=white" alt="Thymeleaf">
+  <img src="https://img.shields.io/badge/OpenAI_API-6E4D57?style=flat-square&logo=openai&logoColor=white" alt="OpenAI API">
 </p>
 
 
 ## 📌 Project Overview
 
 EduPOP은 초·중학생 대상 학원의 운영과 학습 과정을 하나의 웹 서비스로 연결한 팀 프로젝트입니다.
+
+> **팀 프로젝트 안내** — 아래 기능은 서비스 전체 기능이며, 제가 직접 담당한 구현 범위는 **My Contribution**에서 별도로 구분했습니다.
 
 ### 핵심 학습 순환
 
@@ -75,20 +77,22 @@ flowchart LR
 
 ## 👤 My Contribution
 
-> **아이디어 제안과 서비스 기획을 주도하고, 교사가 시험 결과를 다음 수업에 활용하는 흐름을 핵심 기능으로 구현했습니다.**
+> **학원 운영에서 발생하는 문제를 요구사항과 데이터 흐름으로 구조화하고, 교사가 시험 결과를 실제 수업 준비에 활용할 수 있도록 반 관리·성적 분석·대시보드 기능을 직접 구현했습니다.**
 
-### 1. 서비스 기획 및 데이터 흐름 설계
+### 1. 문제 정의 · 요구사항 구조화 · 데이터 흐름 설계
 
-- EduPOP 아이디어 제안 및 서비스 방향 구체화
-- 시험 결과가 분석·복습·성장 리포트로 이어지는 사용자 흐름 설계
-- 반 단위 분석에서 학생 상세 리포트로 연결되는 정보 구조 설계
-- 분석 결과를 월간 학생 리포트에서도 재사용할 수 있도록 내부 메서드 구조 구성
+- EduPOP 아이디어를 제안하고, 학원 운영과 학습상의 요구를 제품 기능 요구사항으로 구체화
+- 시험 결과가 분석·복습·성장 리포트로 이어지는 사용자 흐름 정의
+- 반 단위 분석에서 학생 단위 리포트로 이어지는 정보 흐름 설계
+- 분석 로직을 분리해 월간 학생 리포트에서도 재사용할 수 있도록 구조화
 
 ### 2. 반 생성 및 수강생·다중 강사 매핑
 
 - 반 생성·수정·상태 관리와 담당 강사·수강생 배정 기능 구현
 - 한 반에 여러 강사를 연결하는 N:M 매핑 구조 구성
 - 학생 중복 배정과 정원 조건을 검증하는 운영 로직 구현
+- 반 소유권 확인 로직을 추가해 운영 안정성 보완
+- 삭제 대신 상태를 관리하는 Soft Delete 적용
 - Controller–Service–MyBatis Mapper 계층으로 기능 구성
 
 ### 3. 수업 전 3분 대시보드
