@@ -23,7 +23,7 @@ EduPOP connects test creation, grading, analysis, review, and growth reporting i
   <img src="https://img.shields.io/badge/OpenAI_API-412991?style=flat-square&logo=openai&logoColor=white" alt="OpenAI API">
 </p>
 
-## 📌 Project Overview
+## 01 · Project Overview
 
 EduPOP is a team project for private academies serving elementary and middle school students. It connects academy operations and learning activities in a single web service.
 
@@ -48,7 +48,7 @@ flowchart LR
 | Teacher | Test creation, PDF question extraction, OMR grading, performance analysis, 3-minute dashboard, student reports, reading feedback |
 | Student | Online tests, wrong-answer review, daily review, AI-generated similar questions, vocabulary games, reading activities, growth reports |
 
-## 🔎 Key Features
+## 02 · Key Features
 
 ### Test Creation and Grading
 - Create tests manually or duplicate existing test templates
@@ -78,7 +78,7 @@ flowchart LR
 - Uses the Korean National Tax Service business-registration verification API
 - Verifies business registration number, representative name, opening date, and business status
 
-## 👤 My Contribution
+## 03 · My Contribution
 
 > **I structured academy-operation problems into requirements and data flows, and directly implemented class-management, analytics, and dashboard features that help teachers act on test results.**
 
@@ -107,7 +107,7 @@ flowchart LR
 - Handled no-data cases with empty or default output
 - Separated analytics methods so they could be reused by another team member's monthly report feature
 
-## 🧩 Tech Stack
+## 04 · Tech Stack
 
 | Area | Technology |
 | --- | --- |
@@ -123,7 +123,7 @@ flowchart LR
 
 > Note: Spring Data JPA is also included in the project's pom.xml and some report-domain code uses JPA-related components. However, the main data-access flow and the class-management / analytics features I implemented are primarily based on MyBatis.
 
-## 🏗️ Application Structure
+## 05 · Application Structure
 
 ~~~mermaid
 flowchart TB
@@ -154,7 +154,7 @@ Thymeleaf + JavaScript
 Charts · Comparison Metrics · Risk Signals
 ~~~
 
-## 💡 Design Decisions
+## 06 · Design Decisions
 
 ### Reusable Analytics Logic
 Instead of calculating the same exam data independently on each screen, analytics logic was separated into reusable Service/Mapper methods so the same results could be reused in other reporting features.
@@ -188,7 +188,7 @@ Separate mapping tables were used to support multiple instructors per class and 
 
 ---
 
-## 🎬 Portfolio & Demo
+## 07 · Portfolio & Demo
 
 - 🎥 **[EduPOP Demo Video](https://youtu.be/mkAcPCD7VOY)** — Demonstrates the implemented user flow and key features
 
@@ -196,7 +196,7 @@ The portfolio PDF is not currently included in this repository. A link should on
 
 ---
 
-## 🚀 Getting Started
+## 08 · Getting Started
 
 ### Requirements
 - JDK 17
