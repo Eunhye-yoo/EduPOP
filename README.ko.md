@@ -4,6 +4,8 @@
 
 <h1 align="center">EduPOP</h1>
 
+<p align="center"><a href="./README.md">English README</a></p>
+
 <p align="center"><strong>학원 운영과 시험 결과를 다음 학습으로 연결하는 교육 플랫폼</strong></p>
 
 <p align="center">시험 → 분석 → 복습 → 성장 리포트의 흐름을 하나의 서비스로 연결해, 교사는 다음 수업을 준비하고 학생은 자신의 취약점을 확인할 수 있도록 설계했습니다.</p>
@@ -11,7 +13,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Java-17-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java 17">
   <img src="https://img.shields.io/badge/Spring_Boot-4.1.0-6DB33F?style=flat-square&logo=springboot&logoColor=white" alt="Spring Boot 4.1.0">
-  <img src="https://img.shields.io/badge/MyBatis-4.0.1-000000?style=flat-square" alt="MyBatis 4.0.1">
+  <img src="https://img.shields.io/badge/MyBatis_Starter-4.0.1-000000?style=flat-square" alt="MyBatis Spring Boot Starter 4.0.1">
   <img src="https://img.shields.io/badge/MySQL-8.x-4479A1?style=flat-square&logo=mysql&logoColor=white" alt="MySQL">
   <img src="https://img.shields.io/badge/Thymeleaf-3.x-005F0F?style=flat-square&logo=thymeleaf&logoColor=white" alt="Thymeleaf">
   <img src="https://img.shields.io/badge/OpenAI_API-412991?style=flat-square&logo=openai&logoColor=white" alt="OpenAI API">
@@ -116,7 +118,7 @@ flowchart LR
 | 영역 | 기술 |
 | --- | --- |
 | Backend | Java 17, Spring Boot 4.1.0, Spring MVC, Spring Security |
-| Persistence | MyBatis, MySQL |
+| Persistence | MyBatis Spring Boot Starter 4.0.1, MySQL |
 | Frontend | Thymeleaf, HTML5, CSS3, JavaScript |
 | Visualization | Chart.js |
 | AI | OpenAI Java SDK |
