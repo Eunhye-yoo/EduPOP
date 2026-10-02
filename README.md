@@ -17,7 +17,7 @@ EduPOP connects test creation, grading, analysis, review, and growth reporting i
 <p align="center">
   <img src="https://img.shields.io/badge/Java-17-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java 17">
   <img src="https://img.shields.io/badge/Spring_Boot-4.1.0-6DB33F?style=flat-square&logo=springboot&logoColor=white" alt="Spring Boot 4.1.0">
-  <img src="https://img.shields.io/badge/MyBatis-4.0.1-000000?style=flat-square" alt="MyBatis 4.0.1">
+  <img src="https://img.shields.io/badge/MyBatis_Starter-4.0.1-000000?style=flat-square" alt="MyBatis Spring Boot Starter 4.0.1">
   <img src="https://img.shields.io/badge/MySQL-8.x-4479A1?style=flat-square&logo=mysql&logoColor=white" alt="MySQL">
   <img src="https://img.shields.io/badge/Thymeleaf-3.x-005F0F?style=flat-square&logo=thymeleaf&logoColor=white" alt="Thymeleaf">
   <img src="https://img.shields.io/badge/OpenAI_API-412991?style=flat-square&logo=openai&logoColor=white" alt="OpenAI API">
@@ -112,7 +112,7 @@ flowchart LR
 | Area | Technology |
 | --- | --- |
 | Backend | Java 17, Spring Boot 4.1.0, Spring MVC, Spring Security |
-| Persistence | MyBatis, MySQL |
+| Persistence | MyBatis Spring Boot Starter 4.0.1, MySQL |
 | Frontend | Thymeleaf, HTML5, CSS3, JavaScript |
 | Visualization | Chart.js |
 | AI | OpenAI Java SDK |
