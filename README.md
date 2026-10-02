@@ -192,8 +192,6 @@ Separate mapping tables were used to support multiple instructors per class and 
 
 - 🎥 **[EduPOP Demo Video](https://youtu.be/mkAcPCD7VOY)** — Demonstrates the implemented user flow and key features
 
-The portfolio PDF is not currently included in this repository. A link should only be added after the actual file is uploaded.
-
 ---
 
 ## 08 · Getting Started
