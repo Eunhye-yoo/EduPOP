@@ -4,7 +4,7 @@
 
 <h1 align="center">EduPOP</h1>
 
-<p align="center"><a href="./README.md">English README</a></p>
+<p align="center"><a href="./README.md">English README</a> · <a href="./docs/EduPOP_Portfolio_Eunhye_Yoo.pdf">포트폴리오 PDF</a></p>
 
 <p align="center"><strong>학원 운영과 시험 결과를 다음 학습으로 연결하는 교육 플랫폼</strong></p>
 
@@ -196,6 +196,7 @@ Academy
 
 ## 07 · Portfolio & Demo
 
+- 📄 **[EduPOP 서비스 기획 및 구현 포트폴리오 (PDF · 17쪽)](./docs/EduPOP_Portfolio_Eunhye_Yoo.pdf)** — 문제 정의, 본인 기여, 데이터·서버 설계, 구현 한계와 후속 검증 계획
 - 🎥 **[EduPOP 서비스 시연 영상](https://youtu.be/mkAcPCD7VOY)** — 실제 구현된 주요 사용자 흐름과 핵심 기능
 ---
 

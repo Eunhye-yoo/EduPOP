@@ -11,7 +11,7 @@ EduPOP connects test creation, grading, analysis, review, and growth reporting i
 </p>
 
 <p align="center">
-  <a href="./README.ko.md">한국어 README</a>
+  <a href="./README.ko.md">한국어 README</a> · <a href="./docs/EduPOP_Portfolio_Eunhye_Yoo.pdf">Portfolio (PDF · Korean)</a>
 </p>
 
 <p align="center">
@@ -190,6 +190,7 @@ Separate mapping tables were used to support multiple instructors per class and 
 
 ## 07 · Portfolio & Demo
 
+- 📄 **[EduPOP Product Planning & Implementation Portfolio (PDF · Korean, 17 pages)](./docs/EduPOP_Portfolio_Eunhye_Yoo.pdf)** — Problem definition, individual contributions, data and server design, and implementation limits with follow-up validation plans
 - 🎥 **[EduPOP Demo Video](https://youtu.be/mkAcPCD7VOY)** — Demonstrates the implemented user flow and key features
 
 ---
