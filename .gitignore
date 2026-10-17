@@ -1,0 +1,18 @@
+# Dependencies and generated output
+node_modules/
+build/
+dist/
+target/
+.gradle/
+*.class
+# Local credentials
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+# Local IDE and OS files
+.idea/
+.DS_Store
+Thumbs.db

@@ -218,6 +218,8 @@ Before running the project locally, review `EduPOP/src/main/resources/applicatio
 
 | Environment Variable | Purpose |
 | --- | --- |
+| DB_URL, DB_USERNAME, DB_PASSWORD | Local MySQL connection |
+| JWT_SECRET | Random secret of at least 32 bytes for HS256 when using JWT |
 | OPENAI_API_KEY | AI-generated similar questions |
 | KAKAO_CLIENT_ID, KAKAO_REDIRECT_URI | Kakao login |
 | NAVER_CLIENT_ID, NAVER_CLIENT_SECRET, NAVER_REDIRECT_URI | Naver login |
@@ -247,3 +249,5 @@ The repository includes code for class management, analytics, monthly reports, a
 ---
 
 <p align="center"><strong>EduPOP — Turning the end of a test into the start of the next learning cycle</strong></p>
+
+Configuration update: inject database values and the JWT secret at runtime. If the previously public JWT key was used, rotate it and account for token invalidation. Database, OAuth, and JWT integration were not rerun during this cleanup.

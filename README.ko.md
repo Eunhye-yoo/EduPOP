@@ -222,6 +222,8 @@ cd EduPOP/EduPOP
 
 | 환경 변수 | 용도 |
 | --- | --- |
+| DB_URL, DB_USERNAME, DB_PASSWORD | 로컬 MySQL 접속 정보 |
+| JWT_SECRET | JWT 사용 시 HS256용 32바이트 이상 무작위 비밀값 |
 | OPENAI_API_KEY | AI 유사 문제 생성 |
 | KAKAO_CLIENT_ID, KAKAO_REDIRECT_URI | Kakao 로그인 |
 | NAVER_CLIENT_ID, NAVER_CLIENT_SECRET, NAVER_REDIRECT_URI | Naver 로그인 |
@@ -247,3 +249,5 @@ Windows에서는 `mvnw.cmd spring-boot:run`을 사용합니다. 기본 포트 �
 ---
 
 <p align="center"><strong>EduPOP — 시험의 끝을 다음 성장의 시작으로</strong></p>
+
+설정 정리: DB 접속값과 JWT 키는 실행 환경에서 주입합니다. 이전 공개 JWT 키를 실제 사용했다면 교체하고 기존 토큰의 재발급 영향을 확인합니다. 이번 변경에서 DB·OAuth·JWT 통합 실행을 재검증하지 않았습니다.
