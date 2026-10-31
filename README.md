@@ -10,15 +10,16 @@
 
 <p align="center">시험 → 분석 → 복습 → 성장 리포트의 흐름을 하나의 서비스로 연결해, 교사는 다음 수업을 준비하고 학생은 자신의 취약점을 확인할 수 있도록 설계했습니다.</p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Java-17-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java 17">
-  <img src="https://img.shields.io/badge/Spring_Boot-4.1.0-6DB33F?style=flat-square&logo=springboot&logoColor=white" alt="Spring Boot 4.1.0">
-  <img src="https://img.shields.io/badge/MyBatis_Starter-4.0.1-000000?style=flat-square" alt="MyBatis Spring Boot Starter 4.0.1">
-  <img src="https://img.shields.io/badge/MySQL-8.x-4479A1?style=flat-square&logo=mysql&logoColor=white" alt="MySQL">
-  <img src="https://img.shields.io/badge/Thymeleaf-3.x-005F0F?style=flat-square&logo=thymeleaf&logoColor=white" alt="Thymeleaf">
-  <img src="https://img.shields.io/badge/OpenAI_API-412991?style=flat-square&logo=openai&logoColor=white" alt="OpenAI API">
-</p>
 
+## 기술 포트폴리오 · 본인 구현 범위
+
+**Cloud & AI Security 포트폴리오의 애플리케이션 보조 프로젝트.** 직접 구현한 반 생성·다중 강사·학생 매핑, 학원 단위 반 상세 접근 검사, 데이터 검증, 대시보드·개인 성적 분석 중심.
+
+- **구현:** 반 생성 시 로그인 사용자의 학원 ID 적용, 상세 조회 시 학원 소유권 비교. 일부 배정 경로의 중복·정원 검사
+- **한계:** 수정·배정 경로 전체에 동일한 학원 소유권 검사가 적용된 것은 아님. 코드 검토를 타 학원 접근 차단 시험 완료로 표현하지 않음
+- **팀 공통 기능:** Spring Security 역할별 URL 규칙, 공통 로그인·BCrypt·OAuth. 개인 직접 구현 성과와 구분
+
+[코드 기준 접근통제 검토](./docs/access-control-review.md) · [보안 포트폴리오](https://github.com/Eunhye-yoo/Eunhye-yoo)
 
 ## 01 · Project Overview
 
@@ -65,7 +66,7 @@ flowchart LR
 - 학생별 성적 추이와 강점·취약 영역을 제공합니다.
 - 월간 학습 리포트를 통해 시험, 복습, 독서 활동을 종합합니다.
 
-### 인증과 접근 제어
+### 인증과 접근 제어 · 팀 공통 기능
 - 일반 로그인과 Kakao·Naver·Google 소셜 로그인 연동 코드를 포함합니다.
 - Spring Security 설정에서 관리자·교사·학생별 URL 접근 권한을 구분합니다.
 - 비밀번호 저장에 BCrypt를 사용하고 세션 기반 로그인 설정을 둡니다.
@@ -74,7 +75,6 @@ flowchart LR
 ### 학원 등록 검증
 - 국세청 사업자등록정보 진위확인 API를 이용해 학원 등록 정보를 검증합니다.
 - 사업자번호, 대표자명, 개업일자 및 영업 상태를 확인합니다.
-
 
 
 ## 03 · My Contribution
@@ -93,8 +93,8 @@ flowchart LR
 - 반 생성·수정·상태 관리와 담당 강사·수강생 배정 기능 구현
 - 한 반에 여러 강사를 연결하는 N:M 매핑 구조 구성
 - 학생 중복 배정과 정원 조건을 검증하는 운영 로직 구현
-- 반 소유권 확인 로직을 추가해 운영 안정성 보완
-- 삭제 대신 상태를 관리하는 Soft Delete 적용
+- 반 상세 조회 시 학원 소유권 비교 적용. 수정·배정 경로의 검사는 별도 확인 필요
+- 삭제 대신 ACTIVE/CLOSED 상태를 통한 종강 관리
 - Controller–Service–MyBatis Mapper 계층으로 기능 구성
 
 ### 3. 수업 전 3분 대시보드

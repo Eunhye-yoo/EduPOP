@@ -14,14 +14,16 @@ EduPOP connects test creation, grading, analysis, review, and growth reporting i
   <a href="./README.md">한국어 README</a> · <a href="./docs/EduPOP_Portfolio_Eunhye_Yoo.pdf">Portfolio (PDF · Korean)</a>
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Java-17-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java 17">
-  <img src="https://img.shields.io/badge/Spring_Boot-4.1.0-6DB33F?style=flat-square&logo=springboot&logoColor=white" alt="Spring Boot 4.1.0">
-  <img src="https://img.shields.io/badge/MyBatis_Starter-4.0.1-000000?style=flat-square" alt="MyBatis Spring Boot Starter 4.0.1">
-  <img src="https://img.shields.io/badge/MySQL-8.x-4479A1?style=flat-square&logo=mysql&logoColor=white" alt="MySQL">
-  <img src="https://img.shields.io/badge/Thymeleaf-3.x-005F0F?style=flat-square&logo=thymeleaf&logoColor=white" alt="Thymeleaf">
-  <img src="https://img.shields.io/badge/OpenAI_API-412991?style=flat-square&logo=openai&logoColor=white" alt="OpenAI API">
-</p>
+
+## Technical Portfolio · My Scope
+
+**Supporting project for a Cloud & AI Security career portfolio.** My work covers class creation, multi-instructor/student mapping, academy-scoped class detail access, data validation, dashboards, and student analytics.
+
+- **Implemented:** Class creation uses the logged-in user's academy ID; detail views compare academy ownership. Duplicate/capacity checks exist on specific assignment paths.
+- **Boundary:** Mutation/assignment routes do not uniformly check academy ownership. Code review is not a completed cross-academy security test.
+- **Team features:** Spring Security role-based URL rules, shared authentication, BCrypt, and OAuth integrations; not claimed as my individual implementation.
+
+[Code-based access-control review](./docs/access-control-review.en.md) · [Security portfolio](https://github.com/Eunhye-yoo/Eunhye-yoo)
 
 ## 01 · Project Overview
 
@@ -68,7 +70,7 @@ flowchart LR
 - Show score trends and individual strengths/weaknesses
 - Aggregate tests, review activity, and reading activity into monthly learning reports
 
-### Authentication and Access Control
+### Authentication and Access Control · Team Features
 - Includes local login and Kakao, Naver, and Google social-login integration code
 - Uses Spring Security to separate URL access by admin, teacher, and student roles
 - Uses BCrypt for password storage and session-based authentication
@@ -93,7 +95,7 @@ flowchart LR
 - Built an N:M mapping structure to support multiple instructors per class
 - Added validation for duplicate student assignment and class capacity
 - Organized features with Controller–Service–MyBatis Mapper layers
-- Added ownership and soft-delete checks to support safer class operations
+- 반 소유권 확인 로직을 추가해 운영 안정성 보완
 
 ### 3. 3-Minute Pre-Class Dashboard
 - Compared class average with overall average based on recent tests
