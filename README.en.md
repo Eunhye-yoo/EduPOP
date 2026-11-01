@@ -4,128 +4,44 @@
 
 <h1 align="center">EduPOP</h1>
 
-<p align="center"><strong>An education platform that connects academy operations and test results to the next learning cycle</strong></p>
+<p align="center"><strong>Academy operations and learning management</strong></p>
+<p align="center"><a href="./README.md">한국어</a> · <a href="./docs/EduPOP_Portfolio_Eunhye_Yoo.pdf">Portfolio PDF, Korean</a> · <a href="https://youtu.be/mkAcPCD7VOY">Demo</a></p>
 
-<p align="center">
-EduPOP connects test creation, grading, analysis, review, and growth reporting in one service so teachers can prepare the next class with data and students can clearly identify their weak areas.
-</p>
+A team project connecting class management, tests, performance analysis, and review. **I implemented class management, teacher/student assignment, the pre-class dashboard, and individual performance reports.**
 
-<p align="center">
-  <a href="./README.md">한국어 README</a> · <a href="./docs/EduPOP_Portfolio_Eunhye_Yoo.pdf">Portfolio (PDF · Korean)</a>
-</p>
+## My Work
 
+### Class Management and Assignment
 
-## Technical Portfolio · My Scope
+- Class creation/update and ACTIVE/CLOSED status management
+- N:M instructor mapping and student assignment/synchronization
+- Duplicate assignment and capacity checks
+- Academy ID taken from the logged-in user during class creation; academy comparison on class-detail requests
+- Controller → Service → MyBatis → MySQL implementation
 
-**Supporting project for a Cloud & AI Security career portfolio.** My work covers class creation, multi-instructor/student mapping, academy-scoped class detail access, data validation, dashboards, and student analytics.
+[Controller](./EduPOP/src/main/java/com/example/EduPOP/controller/classroom/ClassroomController.java) · [Service](./EduPOP/src/main/java/com/example/EduPOP/service/classroom/ClassroomService.java) · [Implementation notes](./docs/access-control-review.en.md)
 
-- **Implemented:** Class creation uses the logged-in user's academy ID; detail views compare academy ownership. Duplicate/capacity checks exist on specific assignment paths.
-- **Boundary:** Mutation/assignment routes do not uniformly check academy ownership. Code review is not a completed cross-academy security test.
-- **Team features:** Spring Security role-based URL rules, shared authentication, BCrypt, and OAuth integrations; not claimed as my individual implementation.
+### Pre-Class Dashboard and Student Reports
 
-[Code-based access-control review](./docs/access-control-review.en.md) · [Security portfolio](https://github.com/Eunhye-yoo/Eunhye-yoo)
+- Class and overall averages for recent tests
+- Weak areas, incorrect-answer rates, and risk/warning/stable signals
+- Individual score trends, category performance, and Top 3/Worst 3 summaries
+- Analytics methods reused in monthly reports
 
-## 01 · Project Overview
+The “3-minute dashboard” names the intended pre-class review use, rather than a measured processing time.
 
-EduPOP is a team project for private academies serving elementary and middle school students. It connects academy operations and learning activities in a single web service.
+[AnalyticsService](./EduPOP/src/main/java/com/example/EduPOP/service/analytics/AnalyticsService.java) · [AnalyticsController](./EduPOP/src/main/java/com/example/EduPOP/controller/analytics/AnalyticsController.java)
 
-> **Team Project** — The features below describe the overall service. My individual implementation scope is separated under **My Contribution**.
+## Team Features
 
-### Core Learning Cycle
-
-~~~mermaid
-flowchart LR
-    A["Academy Operations"] --> B["Test Creation & Taking"]
-    B --> C["Grading & Performance Analysis"]
-    C --> D["Review · AI Practice · Games"]
-    D --> E["Growth Report"]
-    E -. "Next Learning Cycle" .-> B
-~~~
-
-### Main Features by User
-
-| User | Main Features |
+| Area | Shared project code |
 | --- | --- |
-| Admin | Academy registration and verification, member approval and management, class management, teacher/student assignment |
-| Teacher | Test creation, PDF question extraction, OMR grading, performance analysis, 3-minute dashboard, student reports, reading feedback |
-| Student | Online tests, wrong-answer review, daily review, AI-generated similar questions, vocabulary games, reading activities, growth reports |
+| Tests | Test creation, online attempts, OMR input, PDF text extraction |
+| Review | Wrong-answer practice, AI-generated similar questions, vocabulary games |
+| Authentication | Session login, BCrypt, role-based URL rules, Kakao/Naver/Google OAuth |
+| Academy registration | National Tax Service business-registration verification API |
 
-## 02 · Key Features
-
-### Test Creation and Grading
-- Create tests manually or duplicate existing test templates
-- Extract text from PDFs using Apache PDFBox and parse question content
-- Manage multiple-choice and short-answer questions with category/subcategory structures
-- Save both online test results and teacher-entered OMR results
-
-### Personalized Review
-- Provide daily review questions based on recent incorrect answers
-- Generate similar questions with the OpenAI API
-- Validate generated output for question count, number of options, answer range, and duplication
-- Provide vocabulary review in a game format
-
-### Performance Analysis and Reporting
-- Visualize test scores and category-level performance using Chart.js
-- Analyze performance and weak areas by category and subcategory
-- Show score trends and individual strengths/weaknesses
-- Aggregate tests, review activity, and reading activity into monthly learning reports
-
-### Authentication and Access Control · Team Features
-- Includes local login and Kakao, Naver, and Google social-login integration code
-- Uses Spring Security to separate URL access by admin, teacher, and student roles
-- Uses BCrypt for password storage and session-based authentication
-- External OAuth features require each provider's credentials and callback configuration
-
-### Academy Registration Verification
-- Uses the Korean National Tax Service business-registration verification API
-- Verifies business registration number, representative name, opening date, and business status
-
-## 03 · My Contribution
-
-> **I structured academy-operation problems into requirements and data flows, and directly implemented class-management, analytics, and dashboard features that help teachers act on test results.**
-
-### 1. Problem Definition, Requirement Structuring, and Data-Flow Design
-- Proposed the EduPOP concept and translated academy-operation and learning needs into product requirements
-- Defined the user flow connecting test results, analysis, review, and growth reporting
-- Designed the information flow from class-level analysis to student-level reports
-- Structured analytics logic so it could also be reused in monthly student-report features
-
-### 2. Class Management and Student / Multi-Instructor Mapping
-- Implemented class creation, update, status management, and teacher/student assignment
-- Built an N:M mapping structure to support multiple instructors per class
-- Added validation for duplicate student assignment and class capacity
-- Organized features with Controller–Service–MyBatis Mapper layers
-- 반 소유권 확인 로직을 추가해 운영 안정성 보완
-
-### 3. 3-Minute Pre-Class Dashboard
-- Compared class average with overall average based on recent tests
-- Analyzed weak areas and incorrect-answer rates at class and student levels
-- Provided risk / warning / stable signals
-- Designed the dashboard so teachers could identify students and topics requiring attention before class
-
-### 4. Student Performance Report and Reusable Analytics Logic
-- Visualized score trends and category/subcategory performance across test attempts
-- Provided Top 3 strengths and Worst 3 weak areas
-- Handled no-data cases with empty or default output
-- Separated analytics methods so they could be reused by another team member's monthly report feature
-
-## 04 · Tech Stack
-
-| Area | Technology |
-| --- | --- |
-| Backend | Java 17, Spring Boot 4.1.0, Spring MVC, Spring Security |
-| Persistence | MyBatis Spring Boot Starter 4.0.1, MySQL |
-| Frontend | Thymeleaf, HTML5, CSS3, JavaScript |
-| Visualization | Chart.js |
-| AI | OpenAI Java SDK |
-| Document Processing | Apache PDFBox |
-| Authentication | Session, OAuth 2.0 Authorization Code, BCrypt |
-| External API | Korean National Tax Service business-registration verification API |
-| Build | Maven Wrapper, Lombok |
-
-> Note: Spring Data JPA is also included in the project's pom.xml and some report-domain code uses JPA-related components. However, the main data-access flow and the class-management / analytics features I implemented are primarily based on MyBatis.
-
-## 05 · Application Structure
+## Application Structure
 
 ~~~mermaid
 flowchart TB
@@ -133,123 +49,47 @@ flowchart TB
     V --> S["Spring MVC · Spring Security"]
     S --> B["Controller · Service"]
     B --> D["MyBatis · MySQL"]
-    B --> X["OAuth · OpenAI · National Tax Service API"]
+    B --> X["OAuth · OpenAI · NTS API"]
     B --> P["PDFBox"]
     V --> C["Chart.js"]
 ~~~
 
-### Analytics Data Flow
+Class, instructor, and student relationships are stored in separate mapping tables. Analytics data is retrieved through Service/Mapper methods and passed to Thymeleaf and JavaScript charts.
 
-~~~text
-Controller
-    ↓
-AnalyticsService
-    ↓
-AnalyticsMapper
-    ↓
-MySQL
-    ↓
-StudentTrendResponse / ClassWarningResponse
-    ↓
-Thymeleaf + JavaScript
-    ↓
-Charts · Comparison Metrics · Risk Signals
-~~~
+## Stack
 
-## 06 · Design Decisions
+Java 17 · Spring Boot 4.1.0 · MyBatis Starter 4.0.1 · MySQL · Thymeleaf · JavaScript · Chart.js · Maven.
 
-### Reusable Analytics Logic
-Instead of calculating the same exam data independently on each screen, analytics logic was separated into reusable Service/Mapper methods so the same results could be reused in other reporting features.
+Class management and analytics use MyBatis. The repository also contains JPA dependencies and report-domain code.
 
-### Class-Level to Student-Level Analysis
+## Run
 
-~~~text
-Class Performance
-   ↓
-Class Weak Areas
-   ↓
-Students Requiring Attention
-   ↓
-Student Weak Areas
-   ↓
-Individual Performance Analysis
-   ↓
-Next Learning / Intervention
-~~~
+Prepare JDK 17 and MySQL 8.x. Review `EduPOP/DB/schema.sql` before importing: it contains table definitions and subsequent ALTER statements, including repeated column additions.
 
-### Operational Data Relationships
+Set DB and required external-service values in the runtime environment.
 
-~~~text
-Academy
-  └── Class
-       ├── Teachers (N:M)
-       └── Students (N:M)
-~~~
-
-Separate mapping tables were used to support multiple instructors per class and manage student membership safely.
-
----
-
-## 07 · Portfolio & Demo
-
-- 📄 **[EduPOP Product Planning & Implementation Portfolio (PDF · Korean, 17 pages)](./docs/EduPOP_Portfolio_Eunhye_Yoo.pdf)** — Problem definition, individual contributions, data and server design, and implementation limits with follow-up validation plans
-- 🎥 **[EduPOP Demo Video](https://youtu.be/mkAcPCD7VOY)** — Demonstrates the implemented user flow and key features
-
----
-
-## 08 · Getting Started
-
-### Requirements
-- JDK 17
-- MySQL 8.x
-- Git
-- API keys / OAuth credentials for external integrations
-
-### Clone the Repository
-
-~~~bash
-git clone https://github.com/Eunhye-yoo/EduPOP.git
-cd EduPOP/EduPOP
-~~~
-
-### Database and Configuration
-
-`EduPOP/DB/schema.sql` contains both table definitions and later ALTER statements, including some statements that add columns already declared elsewhere. Therefore, it has **not been verified as a clean database-initialization script**.
-
-Before running the project locally, review `EduPOP/src/main/resources/application.properties` and configure the database connection and required external integration values.
-
-| Environment Variable | Purpose |
+| Environment variables | Purpose |
 | --- | --- |
-| DB_URL, DB_USERNAME, DB_PASSWORD | Local MySQL connection |
-| JWT_SECRET | Random secret of at least 32 bytes for HS256 when using JWT |
-| OPENAI_API_KEY | AI-generated similar questions |
+| DB_URL, DB_USERNAME, DB_PASSWORD | MySQL |
+| JWT_SECRET | JWT configuration, where used |
+| OPENAI_API_KEY | Similar-question generation |
 | KAKAO_CLIENT_ID, KAKAO_REDIRECT_URI | Kakao login |
 | NAVER_CLIENT_ID, NAVER_CLIENT_SECRET, NAVER_REDIRECT_URI | Naver login |
 | GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_REDIRECT_URI | Google login |
 | NTS_BUSINESS_API_KEY | Business-registration verification |
 
-Do not commit API keys or client secrets to the repository. Inject them through the runtime environment.
-
-### Run
+Check `application.properties` for the integrations required at startup, including Google credentials.
 
 ~~~bash
+git clone https://github.com/Eunhye-yoo/EduPOP.git
+cd EduPOP/EduPOP
 ./mvnw spring-boot:run
 ~~~
 
-On Windows:
+Windows: `mvnw.cmd spring-boot:run`. Default address: http://localhost:8080.
 
-~~~bash
-mvnw.cmd spring-boot:run
-~~~
+## Follow-Up Work
 
-If the default port is used, the application is available at `http://localhost:8080`.
+Apply academy-ownership checks consistently across update, status, and assignment routes, then test requests from two academies and compare DB changes. The parent-facing report share link also needs completion.
 
-### Current Reproduction Scope
-
-The repository includes code for class management, analytics, monthly reports, and related screens/APIs. A fully reproducible clean-database setup has not yet been verified, and some end-to-end paths still require integrated testing.
-
----
-
-<p align="center"><strong>EduPOP — Turning the end of a test into the start of the next learning cycle</strong></p>
-
-Configuration update: inject database values and the JWT secret at runtime. If the previously public JWT key was used, rotate it and account for token invalidation. Database, OAuth, and JWT integration were not rerun during this cleanup.
+[Code-based access-control review](./docs/access-control-review.en.md) · [Profile](https://github.com/Eunhye-yoo)
